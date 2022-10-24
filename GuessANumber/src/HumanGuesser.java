@@ -13,6 +13,7 @@ public class HumanGuesser {
         clearConsole();
         System.out.println(getName() + " it is now your turn.");
         System.out.println("Press ENTER when ready!");
+        scanner.nextLine();
         clearConsole();
     }
 
