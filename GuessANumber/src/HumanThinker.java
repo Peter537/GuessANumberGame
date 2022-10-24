@@ -9,27 +9,6 @@ public class HumanThinker {
         this.name = null;
     }
 
-    // slettes
-    public void setNumber(int low, int high) {
-        System.out.println("Think of a number between " + low + " and " + high + ", and type something when you are ready: ");
-        String s = scanner.nextLine();
-        String s2 = scanner.nextLine();
-    }
-
-    // slettes
-    public String parseGuess(int guess) {
-        return scanner.nextLine();
-
-        /* IN COMPUTER CLASS FOR THINKER
-        if (guess == number) {
-            return "Congratulations! You guessed the number!";
-        } else {
-            return "Try again, your guess was " + (guess > number ? "too high." : "too low.");
-        }
-         */
-    }
-
-
     public void yourTurn() {
         clearConsole();
         System.out.println(getName() + " it is now your turn.");
@@ -38,12 +17,11 @@ public class HumanThinker {
     }
 
     public void clearConsole() {
-        // clear the console
+        // clears the console
         for (int i = 0; i < 100; i++) {
             System.out.println();
         }
     }
-
 
     public String getName() {
         if (name == null) {
