@@ -43,4 +43,9 @@ public class HumanGuesser {
         System.out.print("Enter your guess: ");
         return scanner.nextInt();
     }
+
+    public void endOfGame(int numberOfGuesses, String opponent) {
+        System.out.println("Game over.");
+        System.out.println("You guessed " + opponent + "'s number in " + numberOfGuesses + " guesses.");
+    }
 }
