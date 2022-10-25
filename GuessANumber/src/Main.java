@@ -2,6 +2,9 @@ import java.util.Scanner;
 
 public class Main {
 
+    // TODO:
+    //  - Use IPlayer instead of IThinker and IGuesser
+
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {

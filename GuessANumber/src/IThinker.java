@@ -8,7 +8,5 @@ public interface IThinker {
 
     Answer evaluateGuess(int guess, String opponent);
 
-    void endOfGame(int numberOfGuesses, String opponent);
-
-    boolean playAgain();
+    boolean endOfGame(int numberOfGuesses, String opponent);
 }

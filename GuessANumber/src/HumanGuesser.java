@@ -27,11 +27,20 @@ public class HumanGuesser extends AHumanPlayer implements IGuesser {
         scanner.nextLine();
     }
 
-    public void endOfGame(int numberOfGuesses, String opponent) {
+    public boolean endOfGame(int numberOfGuesses, String opponent) {
         System.out.println("Game over.");
         System.out.println("You used " + numberOfGuesses
                 + (numberOfGuesses == 1 ? " guess " : " guesses ") + "to guess " + opponent + "'s secret number.");
-        System.out.println("Press ENTER when ready.");
-        scanner.nextLine();
+        System.out.print("Do you want to play again? (y/n): ");
+        while (true) {
+            String input = scanner.nextLine();
+            if (input.equalsIgnoreCase("y")) {
+                return true;
+            } else if (input.equalsIgnoreCase("n")) {
+                return false;
+            } else {
+                System.out.print("Invalid input, please try again: ");
+            }
+        }
     }
 }

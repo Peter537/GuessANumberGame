@@ -12,6 +12,8 @@ public class GameControl {
         String thinkerName = thinker.getName();
         String guesserName = guesser.getName();
 
+        boolean thinkerPlayAgain = false;
+        boolean guesserPlayAgain = false;
         do {
             // Thinker start game
             thinker.yourTurn();
@@ -34,12 +36,11 @@ public class GameControl {
                 guesser.yourTurn();
                 guesser.guessFeedback(answer);
             } while (answer != Answer.CORRECT);
-            guesser.endOfGame(numberOfGuesses, thinkerName);
+            guesserPlayAgain = guesser.endOfGame(numberOfGuesses, thinkerName);
             thinker.yourTurn();
-            thinker.endOfGame(numberOfGuesses, guesserName);
-
+            thinkerPlayAgain = thinker.endOfGame(numberOfGuesses, guesserName);
             System.out.println("End of game! " + numberOfGuesses + (numberOfGuesses == 1 ? " guess " : " guesses ") + "was used!");
-        } while (thinker.playAgain() && guesser.playAgain());
+        } while (thinkerPlayAgain && guesserPlayAgain);
         System.out.println("Goodbye!");
     }
 }

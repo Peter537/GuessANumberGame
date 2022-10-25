@@ -43,18 +43,4 @@ public abstract class AHumanPlayer {
         System.out.println("Press ENTER when you are ready.");
         scanner.nextLine();
     }
-
-    public boolean playAgain() {
-        System.out.print("Do you want to play again? (y/n): ");
-        while (true) {
-            String input = scanner.nextLine();
-            if (input.equalsIgnoreCase("y")) {
-                return true;
-            } else if (input.equalsIgnoreCase("n")) {
-                return false;
-            } else {
-                System.out.print("Invalid input, please try again: ");
-            }
-        }
-    }
 }
