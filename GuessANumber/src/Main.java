@@ -4,5 +4,4 @@ public class Main {
         GameControl gameControl = new GameControl();
         gameControl.start();
     }
-
 }
