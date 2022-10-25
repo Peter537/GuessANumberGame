@@ -36,6 +36,6 @@ public class GameControl {
         thinker.yourTurn();
         thinker.endOfGame(numberOfGuesses, guesserName);
 
-        System.out.println("End of game!");
+        System.out.println("End of game! " + numberOfGuesses + (numberOfGuesses == 1 ? " guess " : " guesses ") + " was used!");
     }
 }

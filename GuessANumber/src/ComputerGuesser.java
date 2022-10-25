@@ -37,7 +37,5 @@ public class ComputerGuesser {
         }
     }
 
-    public void endOfGame(int numberOfGuesses, String opponent) {
-
-    }
+    public void endOfGame(int numberOfGuesses, String opponent) { }
 }
