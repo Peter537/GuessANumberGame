@@ -1,27 +1,33 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
+abstract class AComputerPlayer
+abstract class AHumanPlayer
+interface IGuesser
+interface IThinker
 
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+class ComputerThinker {
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
+class ComputerGuesser {
+}
+
+class HumanThinker {
+}
+
+class HumanGuesser {
+}
+
+class GameControl {
+}
+
+class Main {
+}
+
+enum Answer {
+    TOO_LOW
+    TOO_HIGH
+    CORRECT
 }
 
 @enduml
