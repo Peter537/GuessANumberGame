@@ -1,21 +1,45 @@
 @startuml
-'https://plantuml.com/class-diagram
-
-'------------------
-' ABSTRACT CLASSES
-'------------------
-
-abstract class AComputerPlayer
-abstract class AHumanPlayer
 
 '------------------
 ' INTERFACES
 '------------------
 
-interface IGuesser {
+interface IPlayer
 
+interface IGuesser {
+    void yourTurn()
+    String getName()
+    void newGame(int min, int max, String opponent, String type)
+    int makeGuess()
+    void guessFeedback(Answer answer)
+    boolean endOfGame(int numberOfGuesses, String opponent)
 }
+
 interface IThinker {
+    void yourTurn()
+    String getName()
+    void newGame(int min, int max, String opponent, String type)
+    Answer evaluateGuess(int guess, String opponent)
+    boolean endOfGame(int numberOfGuesses, String opponent)
+}
+
+'------------------
+' ABSTRACT CLASSES
+'------------------
+
+abstract class AComputerPlayer {
+    + void yourTurn()
+    + boolean endOfGame(int numberOfGuesses, String opponent)
+}
+
+abstract class AHumanPlayer {
+    # static final Scanner scanner
+    - String name
+    + AComputerPlayer()
+    + void yourTurn()
+    + String getName()
+    + void newGame(int min, int max, String opponent, String type)
+    # boolean playAgain()
 }
 
 '------------------
@@ -23,21 +47,43 @@ interface IThinker {
 '------------------
 
 class ComputerThinker {
+    - int secretNumber
+    + String getName()
+    + void newGame(int min, int max, String opponent, String type)
+    + Answer evaluateGuess(int guess, String opponent)
 }
 
 class ComputerGuesser {
+    - int min
+    - int max
+    + String getName()
+    + void newGame(int min, int max, String opponent, String type)
+    + int makeGuess()
+    + void guessFeedback(Answer answer)
 }
 
 class HumanThinker {
+    + Answer evaluateGuess(int guess, String opponent)
+    + boolean endOfGame(int numberOfGuesses, String opponent)
 }
 
 class HumanGuesser {
+    + int makeGuess()
+    + void guessFeedback(Answer answer)
+    + boolean endOfGame(int numberOfGuesses, String opponent)
 }
 
 class GameControl {
+    - final int min
+    - final int max
+    + GameControl(int min, int max)
+    + void runGame(IThinker thinker, IGuesser guesser)
 }
 
 class Main {
+    - static Scanner scanner
+    + static void main(String[] args)
+    + static int chooseType(String s)
 }
 
 '------------------
@@ -63,6 +109,9 @@ ComputerThinker --|> IThinker
 ComputerGuesser --|> IGuesser
 HumanThinker --|> IThinker
 HumanGuesser --|> IGuesser
+
+IThinker --|> IPlayer
+IGuesser --|> IPlayer
 
 GameControl *-- IGuesser
 GameControl *-- IThinker
