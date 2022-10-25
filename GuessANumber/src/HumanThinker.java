@@ -10,14 +10,13 @@ public class HumanThinker {
     }
 
     public void yourTurn() {
-        clearConsole();
+        // clears the console
+        for (int i = 0; i < 100; i++) {
+            System.out.println();
+        }
         System.out.println(getName() + " it is now your turn.");
         System.out.println("Press ENTER when ready!");
         scanner.nextLine();
-        clearConsole();
-    }
-
-    public void clearConsole() {
         // clears the console
         for (int i = 0; i < 100; i++) {
             System.out.println();
