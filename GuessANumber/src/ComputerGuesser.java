@@ -17,7 +17,6 @@ public class ComputerGuesser extends AComputerPlayer implements IGuesser {
     }
 
     public void guessFeedback(Answer answer) {
-        System.out.print("You guess was ");
         switch (answer) {
             case TOO_LOW -> min = ((min + max) / 2) + 1;
             case TOO_HIGH -> max = ((min + max) / 2) - 1;
