@@ -8,7 +8,7 @@ public class GameControl {
         this.max = max;
     }
 
-    public void runGame(HumanThinker thinker, HumanGuesser guesser) {
+    public void runGame(AThinker thinker, AGuesser guesser) {
         String thinkerName = thinker.getName();
         String guesserName = guesser.getName();
         // Thinker start game
