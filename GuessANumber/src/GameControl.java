@@ -11,31 +11,35 @@ public class GameControl {
     public void runGame(IThinker thinker, IGuesser guesser) {
         String thinkerName = thinker.getName();
         String guesserName = guesser.getName();
-        // Thinker start game
-        thinker.yourTurn();
-        thinker.newGame(min, max, guesserName, "Thinker");
-        // Guesser start game
-        guesser.yourTurn();
-        guesser.newGame(min, max, thinkerName, "Guesser");
 
-        // Game main loop
-        Answer answer;
-        int numberOfGuesses = 0;
         do {
-            // Guesser turn
-            int guess = guesser.makeGuess();
-            numberOfGuesses++;
-            // Thinker turn
+            // Thinker start game
             thinker.yourTurn();
-            answer = thinker.evaluateGuess(guess, guesserName);
-            // Guesser turn
+            thinker.newGame(min, max, guesserName, "Thinker");
+            // Guesser start game
             guesser.yourTurn();
-            guesser.guessFeedback(answer);
-        } while (answer != Answer.CORRECT);
-        guesser.endOfGame(numberOfGuesses, thinkerName);
-        thinker.yourTurn();
-        thinker.endOfGame(numberOfGuesses, guesserName);
+            guesser.newGame(min, max, thinkerName, "Guesser");
 
-        System.out.println("End of game! " + numberOfGuesses + (numberOfGuesses == 1 ? " guess " : " guesses ") + "was used!");
+            // Game main loop
+            Answer answer;
+            int numberOfGuesses = 0;
+            do {
+                // Guesser turn
+                int guess = guesser.makeGuess();
+                numberOfGuesses++;
+                // Thinker turn
+                thinker.yourTurn();
+                answer = thinker.evaluateGuess(guess, guesserName);
+                // Guesser turn
+                guesser.yourTurn();
+                guesser.guessFeedback(answer);
+            } while (answer != Answer.CORRECT);
+            guesser.endOfGame(numberOfGuesses, thinkerName);
+            thinker.yourTurn();
+            thinker.endOfGame(numberOfGuesses, guesserName);
+
+            System.out.println("End of game! " + numberOfGuesses + (numberOfGuesses == 1 ? " guess " : " guesses ") + "was used!");
+        } while (thinker.playAgain() && guesser.playAgain());
+        System.out.println("Goodbye!");
     }
 }

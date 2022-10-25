@@ -11,4 +11,6 @@ public interface IGuesser {
     void guessFeedback(Answer answer);
 
     void endOfGame(int numberOfGuesses, String opponent);
+
+    boolean playAgain();
 }
