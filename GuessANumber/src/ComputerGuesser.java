@@ -5,13 +5,6 @@ public class ComputerGuesser implements IGuesser {
 
     public void yourTurn() { }
 
-    public void clearConsole() {
-        // clears the console
-        for (int i = 0; i < 100; i++) {
-            System.out.println();
-        }
-    }
-
     public String getName() {
         return "Computer Guesser";
     }
