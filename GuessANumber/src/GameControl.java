@@ -12,8 +12,8 @@ public class GameControl {
         String thinkerName = thinker.getName();
         String guesserName = guesser.getName();
 
-        boolean thinkerPlayAgain = false;
-        boolean guesserPlayAgain = false;
+        boolean thinkerPlayAgain;
+        boolean guesserPlayAgain;
         do {
             // Thinker start game
             thinker.yourTurn();
