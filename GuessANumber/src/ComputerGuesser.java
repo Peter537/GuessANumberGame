@@ -1,9 +1,7 @@
-public class ComputerGuesser implements IGuesser {
+public class ComputerGuesser extends AComputerPlayer implements IGuesser {
 
     private int min;
     private int max;
-
-    public void yourTurn() { }
 
     public String getName() {
         return "Computer Guesser";
@@ -27,6 +25,4 @@ public class ComputerGuesser implements IGuesser {
             default -> throw new RuntimeException("This should never happen");
         }
     }
-
-    public void endOfGame(int numberOfGuesses, String opponent) { }
 }

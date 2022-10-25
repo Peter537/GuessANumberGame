@@ -1,10 +1,8 @@
 import java.util.Random;
 
-public class ComputerThinker implements IThinker {
+public class ComputerThinker extends AComputerPlayer implements IThinker {
 
     private int secretNumber;
-
-    public void yourTurn() { }
 
     public String getName() {
         return "Computer Thinker";
@@ -23,6 +21,4 @@ public class ComputerThinker implements IThinker {
             return Answer.CORRECT;
         }
     }
-
-    public void endOfGame(int numberOfGuesses, String opponent) { }
 }
