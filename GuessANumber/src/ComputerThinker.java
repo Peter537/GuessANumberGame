@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class ComputerThinker {
+public class ComputerThinker extends AThinker {
 
     private int secretNumber;
 

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class HumanThinker {
+public class HumanThinker extends AThinker {
 
     private final Scanner scanner = new Scanner(System.in);
     private String name;

@@ -1,7 +1,7 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class HumanGuesser {
+public class HumanGuesser extends AGuesser {
 
     private final Scanner scanner = new Scanner(System.in);
     private String name;

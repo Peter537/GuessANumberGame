@@ -1,6 +1,4 @@
-import java.util.InputMismatchException;
-
-public class ComputerGuesser {
+public class ComputerGuesser extends AGuesser {
 
     private int min;
     private int max;
