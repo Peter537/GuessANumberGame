@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public abstract class AHumanPlayer {
+public abstract class AHumanPlayer implements IPlayer {
 
     protected static final Scanner scanner = new Scanner(System.in);
     private String name;
@@ -57,4 +57,17 @@ public abstract class AHumanPlayer {
             }
         }
     }
+
+    // ************************************************************
+    // Dummy methods to make IPlayer work
+    public Answer evaluateGuess(int guess, String opponent) {
+        return null;
+    }
+
+    public int makeGuess() {
+        return -1;
+    }
+
+    public void guessFeedback(Answer answer) { }
+    // ************************************************************
 }

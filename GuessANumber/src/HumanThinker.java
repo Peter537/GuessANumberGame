@@ -1,4 +1,4 @@
-public class HumanThinker extends AHumanPlayer implements IThinker {
+public class HumanThinker extends AHumanPlayer {
 
     public Answer evaluateGuess(int guess, String opponent) {
         System.out.println(opponent + " guessed: " + guess);

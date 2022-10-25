@@ -8,8 +8,8 @@ public class Main {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        IThinker thinker = chooseType("thinker") == 1 ? new HumanThinker() : new ComputerThinker();
-        IGuesser guesser = chooseType("guesser") == 1 ? new HumanGuesser() : new ComputerGuesser();
+        IPlayer thinker = chooseType("thinker") == 1 ? new HumanThinker() : new ComputerThinker();
+        IPlayer guesser = chooseType("guesser") == 1 ? new HumanGuesser() : new ComputerGuesser();
         GameControl gameControl = new GameControl(1, 100);
         gameControl.runGame(thinker, guesser);
     }

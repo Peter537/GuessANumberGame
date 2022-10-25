@@ -1,4 +1,4 @@
-public class ComputerGuesser extends AComputerPlayer implements IGuesser {
+public class ComputerGuesser extends AComputerPlayer {
 
     private int min;
     private int max;

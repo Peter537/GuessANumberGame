@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class ComputerThinker extends AComputerPlayer implements IThinker {
+public class ComputerThinker extends AComputerPlayer {
 
     private int secretNumber;
 

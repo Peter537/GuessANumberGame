@@ -1,4 +1,4 @@
-public class HumanGuesser extends AHumanPlayer implements IGuesser {
+public class HumanGuesser extends AHumanPlayer {
 
     public int makeGuess() {
         System.out.print("Make your guess: ");
