@@ -1,4 +1,4 @@
-public class ComputerGuesser extends AGuesser {
+public class ComputerGuesser implements IGuesser {
 
     private int min;
     private int max;
@@ -16,7 +16,7 @@ public class ComputerGuesser extends AGuesser {
         return "Computer Guesser";
     }
 
-    public void newGame(int min, int max, String opponent) {
+    public void newGame(int min, int max, String opponent, String type) {
         this.min = min;
         this.max = max;
     }

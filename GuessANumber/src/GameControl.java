@@ -8,15 +8,15 @@ public class GameControl {
         this.max = max;
     }
 
-    public void runGame(AThinker thinker, AGuesser guesser) {
+    public void runGame(IThinker thinker, IGuesser guesser) {
         String thinkerName = thinker.getName();
         String guesserName = guesser.getName();
         // Thinker start game
         thinker.yourTurn();
-        thinker.newGame(min, max, guesserName);
+        thinker.newGame(min, max, guesserName, "Thinker");
         // Guesser start game
         guesser.yourTurn();
-        guesser.newGame(min, max, thinkerName);
+        guesser.newGame(min, max, thinkerName, "Guesser");
 
         // Game main loop
         Answer answer;

@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class ComputerThinker extends AThinker {
+public class ComputerThinker implements IThinker {
 
     private int secretNumber;
 
@@ -10,7 +10,7 @@ public class ComputerThinker extends AThinker {
         return "Computer Thinker";
     }
 
-    public void newGame(int min, int max, String opponent) {
+    public void newGame(int min, int max, String opponent, String type) {
         this.secretNumber = new Random().nextInt(max - min + 1) + min;
     }
 

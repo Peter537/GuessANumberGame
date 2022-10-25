@@ -1,44 +1,6 @@
 import java.util.InputMismatchException;
-import java.util.Scanner;
 
-public class HumanGuesser extends AGuesser {
-
-    private final Scanner scanner = new Scanner(System.in);
-    private String name;
-
-    public HumanGuesser() {
-        this.name = null;
-    }
-
-    public void yourTurn() {
-        // clears the console
-        for (int i = 0; i < 100; i++) {
-            System.out.println();
-        }
-        System.out.println(getName() + " it is now your turn.");
-        System.out.println("Press ENTER when ready!");
-        scanner.nextLine();
-        // clears the console
-        for (int i = 0; i < 100; i++) {
-            System.out.println();
-        }
-    }
-
-    public String getName() {
-        if (name == null) {
-            System.out.print("Guesser, please enter your name: ");
-            name = scanner.nextLine();
-        }
-        return name;
-    }
-
-    public void newGame(int min, int max, String opponent) {
-        System.out.println("A new game is about to start. You are the guesser.");
-        System.out.println("You are playing against " + opponent + ".");
-        System.out.println("The range is from " + min + " to " + max + ".");
-        System.out.println("Press ENTER when you are ready.");
-        scanner.nextLine();
-    }
+public class HumanGuesser extends AHumanPlayer implements IGuesser {
 
     public int makeGuess() {
         System.out.print("Make your guess: ");
@@ -67,8 +29,8 @@ public class HumanGuesser extends AGuesser {
 
     public void endOfGame(int numberOfGuesses, String opponent) {
         System.out.println("Game over.");
-        System.out.println("You guessed " + opponent + "'s number in " + numberOfGuesses
-                + (numberOfGuesses == 1 ? " guess." : " guesses."));
+        System.out.println("You used " + numberOfGuesses
+                + (numberOfGuesses == 1 ? " guess " : " guesses ") + "to guess " + opponent + "'s secret number.");
         System.out.println("Press ENTER when ready.");
         scanner.nextLine();
     }
