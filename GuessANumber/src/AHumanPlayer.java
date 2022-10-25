@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public abstract class AHumanPlayer {
 
-    protected final Scanner scanner = new Scanner(System.in);
+    protected static final Scanner scanner = new Scanner(System.in);
     private String name;
 
     public AHumanPlayer() {
@@ -35,12 +35,26 @@ public abstract class AHumanPlayer {
         System.out.println("A new game is about to start. You are the " + type + ".");
         System.out.println("You are playing against " + opponent + ".");
         System.out.println("The range is from " + min + " to " + max + ".");
-        if (type.equals("Thinker")) {
+        if (type.equalsIgnoreCase("Thinker")) {
             System.out.println("You must think of a secret number.");
         } else {
             System.out.println("You must guess " + opponent + "'s secret number.");
         }
         System.out.println("Press ENTER when you are ready.");
         scanner.nextLine();
+    }
+
+    protected boolean playAgain() {
+        System.out.print("Do you want to play again? (y/n): ");
+        while (true) {
+            String input = scanner.nextLine();
+            if (input.equalsIgnoreCase("y")) {
+                return true;
+            } else if (input.equalsIgnoreCase("n")) {
+                return false;
+            } else {
+                System.out.print("Invalid input, please try again: ");
+            }
+        }
     }
 }

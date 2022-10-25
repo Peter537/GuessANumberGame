@@ -16,8 +16,8 @@ public class Main {
 
     public static int chooseType(String s) {
         System.out.println("What kind of " + s + " do you want?");
-        System.out.println("1 - Human");
-        System.out.println("2 - Computer");
+        System.out.println("  1 - Human");
+        System.out.println("  2 - Computer");
         System.out.print("Enter your choice: ");
         while (true) {
             String choice = scanner.nextLine();
@@ -28,6 +28,7 @@ public class Main {
                     return 2;
                 default:
                     System.out.print("Invalid choice, please try again: ");
+                    break;
             }
         }
     }

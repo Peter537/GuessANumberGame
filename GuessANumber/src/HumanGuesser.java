@@ -1,15 +1,12 @@
-import java.util.InputMismatchException;
-
 public class HumanGuesser extends AHumanPlayer implements IGuesser {
 
     public int makeGuess() {
         System.out.print("Make your guess: ");
         while (true) {
             try {
-                int guess = scanner.nextInt();
-                scanner.nextLine();
-                return guess;
-            } catch (InputMismatchException e) {
+                String guess = scanner.nextLine();
+                return Integer.parseInt(guess);
+            } catch (NumberFormatException e) {
                 System.out.print("Invalid input, please try again: ");
             }
         }
@@ -29,18 +26,8 @@ public class HumanGuesser extends AHumanPlayer implements IGuesser {
 
     public boolean endOfGame(int numberOfGuesses, String opponent) {
         System.out.println("Game over.");
-        System.out.println("You used " + numberOfGuesses
-                + (numberOfGuesses == 1 ? " guess " : " guesses ") + "to guess " + opponent + "'s secret number.");
-        System.out.print("Do you want to play again? (y/n): ");
-        while (true) {
-            String input = scanner.nextLine();
-            if (input.equalsIgnoreCase("y")) {
-                return true;
-            } else if (input.equalsIgnoreCase("n")) {
-                return false;
-            } else {
-                System.out.print("Invalid input, please try again: ");
-            }
-        }
+        System.out.println("You used " + numberOfGuesses + (numberOfGuesses == 1 ? " guess " : " guesses ")
+                + "to guess " + opponent + "'s secret number.");
+        return playAgain();
     }
 }

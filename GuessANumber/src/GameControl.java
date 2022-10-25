@@ -22,7 +22,7 @@ public class GameControl {
             guesser.yourTurn();
             guesser.newGame(min, max, thinkerName, "Guesser");
 
-            // Game main loop
+            // Main Game loop
             Answer answer;
             int numberOfGuesses = 0;
             do {
