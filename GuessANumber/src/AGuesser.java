@@ -11,5 +11,4 @@ public abstract class AGuesser {
     public abstract void guessFeedback(Answer answer);
 
     public abstract void endOfGame(int numberOfGuesses, String opponent);
-
 }
