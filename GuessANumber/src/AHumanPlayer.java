@@ -35,6 +35,11 @@ public abstract class AHumanPlayer {
         System.out.println("A new game is about to start. You are the " + type + ".");
         System.out.println("You are playing against " + opponent + ".");
         System.out.println("The range is from " + min + " to " + max + ".");
+        if (type.equals("Thinker")) {
+            System.out.println("You must think of a secret number.");
+        } else {
+            System.out.println("You must guess " + opponent + "'s secret number.");
+        }
         System.out.println("Press ENTER when you are ready.");
         scanner.nextLine();
     }
