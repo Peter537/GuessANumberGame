@@ -63,6 +63,9 @@ public class HumanThinker {
 
     public void endOfGame(int numberOfGuesses, String opponent) {
         System.out.println("Game over.");
-        System.out.println(opponent + " used " + numberOfGuesses + " guesses to guess your secret number.");
+        System.out.println(opponent + " used " + numberOfGuesses + " "
+                + (numberOfGuesses == 1 ? "guess" : "guesses") + " to guess your secret number.");
+        System.out.println("Press ENTER when ready.");
+        scanner.nextLine();
     }
 }

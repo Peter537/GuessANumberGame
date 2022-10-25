@@ -45,7 +45,9 @@ public class HumanGuesser {
         System.out.print("Make your guess: ");
         while (true) {
             try {
-                return scanner.nextInt();
+                int guess = scanner.nextInt();
+                scanner.nextLine();
+                return guess;
             } catch (InputMismatchException e) {
                 System.out.print("Invalid input, please try again: ");
             }
@@ -66,6 +68,9 @@ public class HumanGuesser {
 
     public void endOfGame(int numberOfGuesses, String opponent) {
         System.out.println("Game over.");
-        System.out.println("You guessed " + opponent + "'s number in " + numberOfGuesses + " guesses.");
+        System.out.println("You guessed " + opponent + "'s number in " + numberOfGuesses
+                + (numberOfGuesses == 1 ? " guess." : " guesses."));
+        System.out.println("Press ENTER when ready.");
+        scanner.nextLine();
     }
 }
