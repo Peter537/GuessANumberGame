@@ -4,7 +4,7 @@
 ' INTERFACES
 '------------------
 
-interface IPlayer implements IGuesser, IThinker{
+interface IPlayer extends IGuesser, IThinker {
     void yourTurn()
     String getName()
     void newGame(int min, int max, String opponent, String type)
