@@ -4,23 +4,20 @@
 ' INTERFACES
 '------------------
 
-interface IPlayer
-
-interface IGuesser {
+interface IPlayer {
     void yourTurn()
     String getName()
     void newGame(int min, int max, String opponent, String type)
-    int makeGuess()
-    void guessFeedback(Answer answer)
     boolean endOfGame(int numberOfGuesses, String opponent)
 }
 
+interface IGuesser {
+    int makeGuess()
+    void guessFeedback(Answer answer)
+}
+
 interface IThinker {
-    void yourTurn()
-    String getName()
-    void newGame(int min, int max, String opponent, String type)
     Answer evaluateGuess(int guess, String opponent)
-    boolean endOfGame(int numberOfGuesses, String opponent)
 }
 
 '------------------
@@ -77,7 +74,7 @@ class GameControl {
     - final int min
     - final int max
     + GameControl(int min, int max)
-    + void runGame(IThinker thinker, IGuesser guesser)
+    + void runGame(IPlayer thinker, IPlayer guesser)
 }
 
 class Main {
@@ -100,22 +97,21 @@ enum Answer {
 ' RELATIONS
 '------------------
 
+Main *-- GameControl
+
+GameControl *-- IPlayer
+
+IPlayer <|.. IThinker
+IPlayer <|.. IGuesser
+
+ComputerThinker <|.. IPlayer
+ComputerGuesser <|.. IPlayer
+HumanThinker <|.. IPlayer
+HumanGuesser <|.. IPlayer
+
 AComputerPlayer <|-- ComputerThinker
 AComputerPlayer <|-- ComputerGuesser
 AHumanPlayer <|-- HumanThinker
 AHumanPlayer <|-- HumanGuesser
-
-ComputerThinker --|> IThinker
-ComputerGuesser --|> IGuesser
-HumanThinker --|> IThinker
-HumanGuesser --|> IGuesser
-
-IThinker --|> IPlayer
-IGuesser --|> IPlayer
-
-GameControl *-- IGuesser
-GameControl *-- IThinker
-
-Main *-- GameControl
 
 @enduml
