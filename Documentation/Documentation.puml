@@ -4,7 +4,7 @@
 ' INTERFACES
 '------------------
 
-interface IPlayer {
+interface IPlayer implements IGuesser, IThinker{
     void yourTurn()
     String getName()
     void newGame(int min, int max, String opponent, String type)
@@ -24,12 +24,12 @@ interface IThinker {
 ' ABSTRACT CLASSES
 '------------------
 
-abstract class AComputerPlayer {
+abstract class AComputerPlayer implements IPlayer {
     + void yourTurn()
     + boolean endOfGame(int numberOfGuesses, String opponent)
 }
 
-abstract class AHumanPlayer {
+abstract class AHumanPlayer implements IPlayer {
     # static final Scanner scanner
     - String name
     + AComputerPlayer()
@@ -43,14 +43,14 @@ abstract class AHumanPlayer {
 ' CLASSES
 '------------------
 
-class ComputerThinker {
+class ComputerThinker extends AComputerPlayer {
     - int secretNumber
     + String getName()
     + void newGame(int min, int max, String opponent, String type)
     + Answer evaluateGuess(int guess, String opponent)
 }
 
-class ComputerGuesser {
+class ComputerGuesser extends AComputerPlayer {
     - int min
     - int max
     + String getName()
@@ -59,12 +59,12 @@ class ComputerGuesser {
     + void guessFeedback(Answer answer)
 }
 
-class HumanThinker {
+class HumanThinker extends AHumanPlayer {
     + Answer evaluateGuess(int guess, String opponent)
     + boolean endOfGame(int numberOfGuesses, String opponent)
 }
 
-class HumanGuesser {
+class HumanGuesser extends AHumanPlayer {
     + int makeGuess()
     + void guessFeedback(Answer answer)
     + boolean endOfGame(int numberOfGuesses, String opponent)
@@ -100,18 +100,5 @@ enum Answer {
 Main *-- GameControl
 
 GameControl *-- IPlayer
-
-IPlayer <|.. IThinker
-IPlayer <|.. IGuesser
-
-ComputerThinker <|.. IPlayer
-ComputerGuesser <|.. IPlayer
-HumanThinker <|.. IPlayer
-HumanGuesser <|.. IPlayer
-
-AComputerPlayer <|-- ComputerThinker
-AComputerPlayer <|-- ComputerGuesser
-AHumanPlayer <|-- HumanThinker
-AHumanPlayer <|-- HumanGuesser
 
 @enduml
