@@ -12,6 +12,9 @@ public class GameControl {
         String thinkerName = thinker.getName();
         String guesserName = guesser.getName();
 
+        double gameCount = 0;
+        double guessCount = 0;
+
         boolean thinkerPlayAgain;
         boolean guesserPlayAgain;
         do {
@@ -40,6 +43,9 @@ public class GameControl {
             thinker.yourTurn();
             thinkerPlayAgain = thinker.endOfGame(numberOfGuesses, guesserName);
             System.out.println("End of game! " + numberOfGuesses + (numberOfGuesses == 1 ? " guess " : " guesses ") + "was used!");
+            gameCount++;
+            guessCount += numberOfGuesses;
+            System.out.println("Average number of guesses: " + (guessCount / gameCount));
         } while (thinkerPlayAgain && guesserPlayAgain);
         System.out.println("Goodbye!");
     }
