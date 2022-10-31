@@ -59,6 +59,17 @@ class ComputerGuesser extends AComputerPlayer {
     + void guessFeedback(Answer answer)
 }
 
+class ComputerGuesserRandom extends AComputerPlayer {
+    - final Random random
+    - int min
+    - int max
+    - int guess
+    + String getName()
+    + void newGame(int min, int max, String opponent, String type)
+    + int makeGuess()
+    + void guessFeedback(Answer answer)
+}
+
 class HumanThinker extends AHumanPlayer {
     + Answer evaluateGuess(int guess, String opponent)
     + boolean endOfGame(int numberOfGuesses, String opponent)
