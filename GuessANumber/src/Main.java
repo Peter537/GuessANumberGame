@@ -5,7 +5,11 @@ public class Main {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        IPlayer thinker = chooseType("thinker") == 1 ? new HumanThinker() : new ComputerThinker();
+        IPlayer thinker = switch (chooseType("thinker")) {
+            case 1 -> new HumanThinker();
+            case 2 -> new ComputerThinker();
+            default -> throw new IllegalStateException("Unexpected value: " + chooseType("thinker"));
+        };
         IPlayer guesser = switch (chooseType("guesser")) {
             case 1 -> new HumanGuesser();
             case 2 -> new ComputerGuesser();
