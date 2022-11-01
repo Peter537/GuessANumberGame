@@ -13,7 +13,7 @@ public class HumanGuesser extends AHumanPlayer {
     }
 
     public void guessFeedback(Answer answer) {
-        System.out.print("You guess was ");
+        System.out.print("Your guess was ");
         switch (answer) {
             case TOO_LOW -> System.out.println("too low.");
             case TOO_HIGH -> System.out.println("too high.");
