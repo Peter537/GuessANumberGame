@@ -8,7 +8,7 @@ public class Main {
         IPlayer thinker = switch (chooseType("thinker")) {
             case 1 -> new HumanThinker();
             case 2 -> new ComputerThinker();
-            default -> throw new IllegalStateException("Unexpected value: " + chooseType("thinker"));
+            default -> throw new RuntimeException("This should never happen");
         };
         IPlayer guesser = switch (chooseType("guesser")) {
             case 1 -> new HumanGuesser();
