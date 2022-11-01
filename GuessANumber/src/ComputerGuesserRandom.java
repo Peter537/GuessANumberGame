@@ -8,7 +8,7 @@ public class ComputerGuesserRandom extends AComputerPlayer {
     private int guess;
 
     public String getName() {
-        return "Computer Guesser";
+        return "Computer Guesser Random";
     }
 
     public void newGame(int min, int max, String opponent, String type) {
