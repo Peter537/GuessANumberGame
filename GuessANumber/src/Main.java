@@ -6,7 +6,6 @@ public class Main {
 
     public static void main(String[] args) {
         IPlayer thinker = chooseType("thinker") == 1 ? new HumanThinker() : new ComputerThinker();
-        //IPlayer guesser = chooseType("guesser") == 1 ? new HumanGuesser() : new ComputerGuesser();
         IPlayer guesser = switch (chooseType("guesser")) {
             case 1 -> new HumanGuesser();
             case 2 -> new ComputerGuesser();
